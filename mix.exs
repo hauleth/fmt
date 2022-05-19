@@ -3,7 +3,7 @@ defmodule SigilF.MixProject do
 
   def project do
     [
-      app: :sigil_f,
+      app: :fmt,
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
