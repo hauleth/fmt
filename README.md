@@ -1,11 +1,12 @@
-# SigilF
+# Fmt
 
-Add `sigil_f` for generating formatting functions:
+Formatting sigil for Elixir. Inspired by Rust `format!` macro and Python's
+`f-strings`
 
 ```elixir
-formatter = ~f(~.3f)
-
-formatter.(3.14159) == "3.142"
+import Fmt
+foo = 1
+~F"#{foo :: x}" == "0x1"
 ```
 
 ## Installation
@@ -16,7 +17,7 @@ by adding `sigil_f` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:sigil_f, "~> 0.1.0"}
+    {:fmt, "~> 0.1.0"}
   ]
 end
 ```

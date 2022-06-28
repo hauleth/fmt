@@ -1,4 +1,6 @@
 defmodule Fmt.Parser do
+  @moduledoc false
+
   import NimbleParsec
   import Fmt.Parser.Helpers
 

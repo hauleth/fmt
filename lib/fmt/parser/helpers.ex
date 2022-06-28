@@ -1,4 +1,6 @@
 defmodule Fmt.Parser.Helpers do
+  @moduledoc false
+
   import NimbleParsec
 
   def ows(combinator \\ empty()) do

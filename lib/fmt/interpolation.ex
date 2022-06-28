@@ -1,4 +1,6 @@
 defmodule Fmt.Interpolation do
+  @moduledoc false
+
   alias Macro.Env
 
   @enforce_keys [:value]

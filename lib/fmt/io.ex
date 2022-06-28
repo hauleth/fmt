@@ -71,6 +71,7 @@ defmodule Fmt.IO do
   @doc false
   def parse(format), do: parse(format, 0)
 
+  @doc false
   def parse("", count), do: count
 
   def parse("~" <> rest, count) do
