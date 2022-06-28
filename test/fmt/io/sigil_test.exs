@@ -1,9 +1,9 @@
-defmodule Fmt.SigilTest do
+defmodule Fmt.IO.SigilTest do
   use ExUnit.Case, async: true
 
-  import Fmt.Sigil
+  import Fmt.IO.Sigil
 
-  @subject Fmt.Sigil
+  @subject Fmt.IO.Sigil
 
   doctest @subject
 
@@ -58,14 +58,14 @@ defmodule Fmt.SigilTest do
   end
 
   test "support * as different modifiers" do
-    assert       "  255" == ~F(~*B).(5, 255)
-    assert        "2010" == ~F(~.*B).(5, 255)
-    assert       " 2010" == ~F(~5.*B).(5, 255)
-    assert         "255" == ~F(~..*B).(5, 255)
+    assert "  255" == ~F(~*B).(5, 255)
+    assert "2010" == ~F(~.*B).(5, 255)
+    assert " 2010" == ~F(~5.*B).(5, 255)
+    assert "255" == ~F(~..*B).(5, 255)
     assert "\x05\x05255" == ~F(~5..*B).(5, 255)
-    assert        "2010" == ~F(~.5.*B).(5, 255)
-    assert    "\x052010" == ~F(~5.5.*B).(5, 255)
-    assert       " 2010" == ~F(~*.*B).(5, 5, 255)
-    assert    "\x052010" == ~F(~*.*.*B).(5, 5, 5, 255)
+    assert "2010" == ~F(~.5.*B).(5, 255)
+    assert "\x052010" == ~F(~5.5.*B).(5, 255)
+    assert " 2010" == ~F(~*.*B).(5, 5, 255)
+    assert "\x052010" == ~F(~*.*.*B).(5, 5, 5, 255)
   end
 end

@@ -1,4 +1,4 @@
-defmodule Fmt.Sigil do
+defmodule Fmt.IO.Sigil do
   @moduledoc """
   This module provides `sigil_F/2` macro that generates formatting function
   out of the format string passed as the argument, ex.:

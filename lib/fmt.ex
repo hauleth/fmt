@@ -1,11 +1,18 @@
 defmodule Fmt do
-  defmacro format(fmt) when is_binary(fmt) do
-    fmt
+  defmacro sigil_F({:<<>>, _, [fmt]}, []) do
+    output = build(fmt, __CALLER__)
+
+    quote do
+      IO.iodata_to_binary(unquote(output))
+    end
   end
 
-  defmacro sigil_f({:<<>>, _, [fmt]}, _) do
-    IO.inspect(Fmt.Parser.parse(fmt))
+  defp build(input, env) do
+    {:ok, parsed} = Fmt.Parser.parse(input)
 
-    fmt
+    Enum.map(parsed, fn
+      %Fmt.Interpolation{} = int -> Fmt.Interpolation.to_quoted(int, env)
+      other -> other
+    end)
   end
 end
